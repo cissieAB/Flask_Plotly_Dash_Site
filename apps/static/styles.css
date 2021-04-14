@@ -1,0 +1,13 @@
+.card {
+    width: 335px;
+}
+
+.fakeimg {
+    height: 200px;
+    /* width: 335px; */
+    background: #aaa;
+}
+
+.dash-app-title {
+    color: #4169E1;  /* Royal blue */
+}

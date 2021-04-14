@@ -1,3 +1,9 @@
+"""
+This file generates the plotly objects based on the data produced by `./get_latency_data.py`.
+
+It can be debugged independently.
+"""
+
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -9,7 +15,7 @@ from apps.dashapp_latency.constants import *
 
 # color names, refer to https://www.w3schools.com/colors/colors_names.asp
 # using lower case letters
-TISA_BAR_COLORS = ["steelblue", "skyblue"]
+TISA_BAR_COLORS = ["steelblue", "skyblue"]   # [light one, dark one]
 TERRA_BAR_COLORS = ["tan", "wheat"]
 AQUA_BAR_COLORS = ["mediumaquamarine", "aquamarine"]
 
@@ -146,8 +152,8 @@ def get_monthly_plotly_figure_obj(type_str):
         legend=dict(
             title='Latency',
             orientation="h",
-            font_size=12,
-            x=0,  y=1.1,  # legend position, can adjust
+            font_size=10,
+            x=0,  y=1.15,  # legend position, can adjust
             bgcolor='rgba(255, 255, 255, 0)',  # the same as the background color
             bordercolor='rgba(255, 255, 255, 0)'
         )

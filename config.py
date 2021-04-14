@@ -1,3 +1,10 @@
+"""
+Load the configurations at `.env` and pass them to the Flask server.
+
+Please refer to https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration
+for mre details.
+"""
+
 from os import environ, path
 
 from dotenv import load_dotenv
@@ -8,7 +15,6 @@ load_dotenv(path.join(BASE_DIR, ".env"))   # read environments from .env
 
 class Config:
     """Flask configuration variables."""
-
     # General Config
     FLASK_APP = environ.get("FLASK_APP")
     FLASK_ENV = environ.get("FLASK_ENV")

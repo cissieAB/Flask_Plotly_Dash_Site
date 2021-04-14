@@ -1,3 +1,9 @@
+"""
+This file register the dash apps.
+
+If adding more dash apps, you need to change this file as well.
+"""
+
 import dash
 import dash_bootstrap_components as dbc
 from flask import Flask
@@ -28,7 +34,7 @@ def register_dashapps(app):
         __name__,
         external_stylesheets=[dbc.themes.BOOTSTRAP],   # bootstrap theme
         server=app,
-        url_base_pathname=HTML_APP_LATENCY_PATH,
+        url_base_pathname=HTML_APP_LATENCY_PATH,  # the access address is at `$homepage_url/HTML_APP_LATENCY_PATH`
         meta_tags=[meta_viewport]
     )
 

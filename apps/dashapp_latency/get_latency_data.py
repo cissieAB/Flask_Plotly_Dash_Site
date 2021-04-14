@@ -1,6 +1,8 @@
 """
 This file reads the .csv files from `../data/latency` and prepare them for Plotly
 bar chart plots.
+
+It can be debugged independently.
 """
 import pandas as pd
 from os.path import join
@@ -38,11 +40,8 @@ class SingleFileLatencyData:
         """
         return "delay in " + column_name_str[0] + " days"
 
-    def get_plot_data_from_csv(self, file_path, freq_str):
-        if freq_str == "M":   # TODO: input file inconsistency
-            df = pd.read_csv(file_path, index_col=0)  # for monthly statistics, read the first column as the index
-        else:
-            df = pd.read_csv(file_path)
+    def get_plot_data_from_csv(self, file_path):
+        df = pd.read_csv(file_path)
         self.x = df.iloc[:, 0].values
 
         # read the second column
@@ -58,11 +57,11 @@ class PackedMultiVersionLatencyData:
     def __init__(self, type_str, freq_str):
         # get v3C data
         self.v3c = SingleFileLatencyData(self.get_name_str(type_str, VERSION_STR[0]))
-        self.v3c.get_plot_data_from_csv(self.get_path_str(type_str, VERSION_STR[0], freq_str), freq_str)
+        self.v3c.get_plot_data_from_csv(self.get_path_str(type_str, VERSION_STR[0], freq_str))
 
         # get v4A data
         self.v4a = SingleFileLatencyData(self.get_name_str(type_str, VERSION_STR[1]))
-        self.v4a.get_plot_data_from_csv(self.get_path_str(type_str, VERSION_STR[1], freq_str), freq_str)
+        self.v4a.get_plot_data_from_csv(self.get_path_str(type_str, VERSION_STR[1], freq_str))
 
     def get_path_str(self, type_str, version_str, freq_str):
         # should be identical with the file name

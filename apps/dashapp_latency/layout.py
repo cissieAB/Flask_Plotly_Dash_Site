@@ -1,3 +1,7 @@
+"""
+The layout of the latency dash app.
+
+"""
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
@@ -71,5 +75,5 @@ layout = dbc.Container(
         html.Hr(),
         HTML_RETURN_BUTTON,
     ],
-    fluid=False,   # False indicates a center box which will not expand when the screen is wide enough
+    fluid=False,   # False indicates there is a center box which will not expand when the screen is too wide
 )
