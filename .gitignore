@@ -1,0 +1,13 @@
+# DS_Store
+**/DS_Store
+
+# pycache
+**/__pycache__/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Environments
+.venv/
+
