@@ -64,8 +64,8 @@ class MonthlyFigData:
         :param data: self-defined class PackedMultiVersionMonthlyLatencyData
         :param type_str: in ["Aqua", "Terra", "TISA"]
         """
-        self.sub_1_data = MonthlySubPlotData(data.v3c, type_str, VERSION_STR[0])
-        self.sub_2_data = MonthlySubPlotData(data.v4a, type_str, VERSION_STR[1])
+        self.sub_1_data = MonthlySubPlotData(data.v3c, type_str, VERSION_STR_PLOT[0])
+        self.sub_2_data = MonthlySubPlotData(data.v4a, type_str, VERSION_STR_PLOT[1])
 
     def get_title_str(self, type_str):
         if type_str == TISA:
@@ -152,7 +152,7 @@ def get_monthly_plotly_figure_obj(type_str):
         legend=dict(
             title='Latency',
             orientation="h",
-            font_size=10,
+            font_size=12,
             x=0,  y=1.15,  # legend position, can adjust
             bgcolor='rgba(255, 255, 255, 0)',  # the same as the background color
             bordercolor='rgba(255, 255, 255, 0)'
@@ -180,7 +180,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v3c,
             y=aqua_by_year_data.v3c.y1,
-            name='Aqua ' + VERSION_STR[0] + ': ' + aqua_by_year_data.v3c.y1_legend_str,
+            name='Aqua ' + VERSION_STR_PLOT[0] + ': ' + aqua_by_year_data.v3c.y1_legend_str,
             marker_color=AQUA_BAR_COLORS[0]
         ),
         row=1, col=1
@@ -190,7 +190,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v3c,
             y=aqua_by_year_data.v3c.y2,
-            name='Aqua ' + VERSION_STR[0] + ': ' + aqua_by_year_data.v3c.y2_legend_str,
+            name='Aqua ' + VERSION_STR_PLOT[0] + ': ' + aqua_by_year_data.v3c.y2_legend_str,
             marker_color=AQUA_BAR_COLORS[1]
         ),
         row=1, col=1
@@ -200,7 +200,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v3c,
             y=terra_by_year_data.v3c.y1,
-            name='Terra ' + VERSION_STR[0] + ': ' + terra_by_year_data.v3c.y1_legend_str,
+            name='Terra ' + VERSION_STR_PLOT[0] + ': ' + terra_by_year_data.v3c.y1_legend_str,
             marker_color=TERRA_BAR_COLORS[0]
         ),
         row=1, col=1
@@ -210,7 +210,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v3c,
             y=terra_by_year_data.v3c.y2,
-            name='Terra ' + VERSION_STR[0] + ': ' + terra_by_year_data.v3c.y2_legend_str,
+            name='Terra ' + VERSION_STR_PLOT[0] + ': ' + terra_by_year_data.v3c.y2_legend_str,
             marker_color=TERRA_BAR_COLORS[1]
         ),
         row=1, col=1
@@ -220,7 +220,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v3c,
             y=tisa_by_year_data.v3c.y1,
-            name='TISA ' + VERSION_STR[0] + ': ' + tisa_by_year_data.v3c.y1_legend_str,
+            name='TISA ' + VERSION_STR_PLOT[0] + ': ' + tisa_by_year_data.v3c.y1_legend_str,
             marker_color=TISA_BAR_COLORS[0]
         ),
         row=1, col=1
@@ -230,7 +230,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v3c,
             y=tisa_by_year_data.v3c.y2,
-            name='TISA ' + VERSION_STR[0] + ': ' + tisa_by_year_data.v3c.y2_legend_str,
+            name='TISA ' + VERSION_STR_PLOT[0] + ': ' + tisa_by_year_data.v3c.y2_legend_str,
             marker_color=TISA_BAR_COLORS[1]
         ),
         row=1, col=1
@@ -255,7 +255,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v4a,
             y=aqua_by_year_data.v4a.y1,
-            name='Aqua ' + VERSION_STR[1] + ': ' + aqua_by_year_data.v4a.y1_legend_str,
+            name='Aqua ' + VERSION_STR_PLOT[1] + ': ' + aqua_by_year_data.v4a.y1_legend_str,
             marker_color=AQUA_BAR_COLORS[0],
             marker_line_color="black",
             marker_line_width=1.5,
@@ -267,7 +267,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v4a,
             y=aqua_by_year_data.v4a.y2,
-            name='Aqua ' + VERSION_STR[1] + ': ' + aqua_by_year_data.v4a.y2_legend_str,
+            name='Aqua ' + VERSION_STR_PLOT[1] + ': ' + aqua_by_year_data.v4a.y2_legend_str,
             marker_color=AQUA_BAR_COLORS[1],
             marker_line_color="black",
             marker_line_width=1.5,
@@ -279,7 +279,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v4a,
             y=terra_by_year_data.v4a.y1,
-            name='Terra ' + VERSION_STR[1] + ': ' + terra_by_year_data.v4a.y1_legend_str,
+            name='Terra ' + VERSION_STR_PLOT[1] + ': ' + terra_by_year_data.v4a.y1_legend_str,
             marker_color=TERRA_BAR_COLORS[0],
             marker_line_color="black",
             marker_line_width=1.5,
@@ -291,7 +291,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v4a,
             y=terra_by_year_data.v4a.y2,
-            name='Terra ' + VERSION_STR[1] + ': ' + terra_by_year_data.v4a.y2_legend_str,
+            name='Terra ' + VERSION_STR_PLOT[1] + ': ' + terra_by_year_data.v4a.y2_legend_str,
             marker_color=TERRA_BAR_COLORS[1],
             marker_line_color="black",
             marker_line_width=1.5,
@@ -303,7 +303,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v4a,
             y=tisa_by_year_data.v4a.y1,
-            name='TISA ' + VERSION_STR[1] + ': ' + tisa_by_year_data.v4a.y1_legend_str,
+            name='TISA ' + VERSION_STR_PLOT[1] + ': ' + tisa_by_year_data.v4a.y1_legend_str,
             marker_color=TISA_BAR_COLORS[0],
             marker_line_color="black",
             marker_line_width=1.5,
@@ -315,7 +315,7 @@ def get_annual_plotly_figure_obj():
         go.Bar(
             x=x_axis_v4a,
             y=tisa_by_year_data.v4a.y2,
-            name='TISA ' + VERSION_STR[1] + ': ' + tisa_by_year_data.v4a.y2_legend_str,
+            name='TISA ' + VERSION_STR_PLOT[1] + ': ' + tisa_by_year_data.v4a.y2_legend_str,
             marker_color=TISA_BAR_COLORS[1],
             marker_line_color="black",
             marker_line_width=1.5,

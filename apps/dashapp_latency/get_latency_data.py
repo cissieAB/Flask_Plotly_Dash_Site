@@ -15,6 +15,9 @@ FLAG_YEAR_STR = "Y"
 
 
 class SingleFileLatencyData:
+    """
+    A class to parse the data in a single csv file
+    """
     def __init__(self, name_str):
         self.data_name = name_str
         self.x = []     # x axis
@@ -54,6 +57,9 @@ class SingleFileLatencyData:
 
 
 class PackedMultiVersionLatencyData:
+    """
+    A class to pack the two versions of the same type data together.
+    """
     def __init__(self, type_str, freq_str):
         # get v3C data
         self.v3c = SingleFileLatencyData(self.get_name_str(type_str, VERSION_STR[0]))

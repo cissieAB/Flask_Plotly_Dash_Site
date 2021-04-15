@@ -1,5 +1,5 @@
 .card {
-    width: 335px;
+    width: 335px;   /* TODO: find more responsive solutions when adjust the screen width */
 }
 
 .fakeimg {
