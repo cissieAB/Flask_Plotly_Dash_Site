@@ -75,5 +75,5 @@ layout = dbc.Container(
         html.Hr(),
         HTML_RETURN_BUTTON,
     ],
-    fluid=False,   # False indicates there is a center box which will not expand when the screen is too wide
+    fluid=False,   # False indicates there is a center box which will not expand when the screen goes too wide
 )

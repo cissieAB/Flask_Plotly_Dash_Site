@@ -33,7 +33,7 @@ Each app is within a folder named as `./apps/dashapp_xxx`.
 For example, the latency plots are at `./apps/dashapp_latency`.
 
 ### Frontend
-The static html webpages are under `./apps/templates/`. 
+The static html webpages have to be under `./apps/templates/`. 
 
 Flask will automatically search for the `.html` files at this location. 
 Inappropriate processing of the locations may cause error.
@@ -42,23 +42,27 @@ Inappropriate processing of the locations may cause error.
 
 ### Configuring Apache
 NASA is using Apache to host the websites.
-- [ ] Apache 
+- [ ] [Apache](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/)
 
-### Codes to be revised
+### Revising codes for production usage
 - In `/apps/constants.py` line 5, change `HTML_HOME_PATH = "http://127.0.0.1:5000"` 
-  to the actual home page url address.
+  to the actual homepage url address after deployment.
   
 ## Updates
 ### Latency charts
-- Source data location: under the folder `apps/data/latency`.
+- Source data location: `apps/data/latency/*.csv`. 
+  Replacing the files in this folder to update the plots at the webpage endpoint.
 - Naming rules:
-  1. Monthly latency data files are named as "typestr_vstr_SR_by_month.csv", 
-  where `typestr` is "Aqua", "Terra" or "TISA", and `vstr` is "v3C" or "v4A".
-  2. Annual latency data files are named as "vstr_latency_by_year.csv" where
-  `vstr` is "v3C" or "v4A".
+  1. Monthly latency data files are named as "typestr_vstr_SR_by_month.csv",
+  2. Annual latency data files are named as "vstr_latency_by_year.csv"
 
-When 
-The location and the file names are hardcoded in the backend. Please follow the rules.    
+    where `typestr` is one of "Aqua", "Terra" or "TISA", and `vstr` is "Version3C" or "Version4A".
+- The location and the file names are hardcoded in the backend scripts. Please follow them to save time.  
+- The source data files are got through 
+  the [automatic latency statistic scripts](https://github.com/cissieAB/LatencyResample). 
+  Copying the results there to here is super welcome.
+  
+
 
  
 
