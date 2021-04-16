@@ -27,6 +27,7 @@ A reference can be found [here](https://packaging.python.org/guides/installing-u
 ## Description
 ### Folder structure
 ![](folder_structure.png)
+
 Above is the screenshot of the project. Its main structure is described below.
 - `requirement.txt`,`start_venv.sh`, `.venv/`: Python environment related.
 - `.env`, `config.py`: global Flask configuration files. `config.py` parse the parameters
@@ -100,13 +101,17 @@ HTML_HOME_PATH = "http://127.0.0.1:5000"   # IMPORTANT: change it to the true ur
 - The location and the file names are hardcoded in the backend scripts. Please follow them to save time.  
 - The source data files are got through 
   the [automatic latency statistic scripts](https://github.com/cissieAB/LatencyResample). 
-  Copying from the results there is recommended.
+  Copying the results from there is recommended.
   
 
 
  
 
 ## References
-
+- [Flask official documentation](https://flask.palletsprojects.com/en/1.1.x/)
+- [Deploy Flask with Apache](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/)
+- [Dash official documentation](https://dash.plotly.com/)
+- [Bootstrap official documentation](https://getbootstrap.com/)
+- [Bootstrap templates](https://www.w3schools.com/bootstrap/bootstrap_templates.asp)
+- [Dash Bootstrap components](https://dash-bootstrap-components.opensource.faculty.ai/)
 - [How to embed a Dash app into an existing Flask app](https://medium.com/@olegkomarov_77860/how-to-embed-a-dash-app-into-an-existing-flask-app-ea05d7a2210b#bd30)
-- [The Flask official documentation: deployment with Apache](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/)

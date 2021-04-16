@@ -58,7 +58,11 @@
         <!-- One dash plot entry is represented with one Bootstrap Card-->
         <div class="col-sm-4">
             <div class="card">
-                <img class="fakeimg" src="" alt="Card image">
+                <div class="card-header">
+                    <!-- image size: height: 200px, width: 375px-->
+                    <img class="card-img-top" src="../static/images/cover_latency_app.png" alt="Latency App Cover Image">
+                </div>
+
                 <div class="card-body">
                     <!-- things in the double quoted brace are passed through `./apps/routes.py` -->
                     <h4 class="dash-app-title">{{ app_1_latency_title }}</h4>
@@ -73,7 +77,9 @@
         </div>
         <div class="col-sm-4">
             <div class="card" >
-                <img class="fakeimg" src="" alt="Card image">
+                <div class="card-header">
+                    <img class="card-img-top" src="" alt="Card Image">
+                </div>
                 <div class="card-body">
                     <h4 class="dash-app-title">Plots 2</h4>
                     <p class="card-text">
@@ -87,7 +93,9 @@
         </div>
         <div class="col-sm-4">
             <div class="card" >
-                <img class="fakeimg" src="" alt="Card image">
+                <div class="card-header">
+                    <img class="card-img-top" src="" alt="Card Image">
+                </div>
                 <div class="card-body">
                     <h4 class="dash-app-title">Plots 3</h4>
                     <p class="card-text">
