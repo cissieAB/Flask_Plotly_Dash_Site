@@ -40,6 +40,9 @@ more Dash apps.
   files for each sub page of the website. The documentation of the Flask routing rules can 
   be found [here](https://flask.palletsprojects.com/en/1.1.x/quickstart/#routing). 
   It must be changed when you add more sub pages.
+- `/apps/common_app_layouts.py`: define the common Dash components for all the Dash apps.
+  Now it includes a main container, with a return to homepage button at the bottom.
+  Change it to meet your own designs.
 - `/apps/templates/`: all the static html files defined by `/apps/routes.py` have to be 
   located here. These html files are independent of the Dash pages created by pure Python. 
   Change them when needed.
@@ -79,7 +82,6 @@ LESS_BIN=/usr/local/bin/lessc
 ASSETS_DEBUG=False
 LESS_RUN_IN_DEBUG=False
 COMPRESSOR_DEBUG=True
-
 ```
   
 - In `/apps/constants.py`, change `HTML_HOME_PATH = "http://127.0.0.1:5000"` 

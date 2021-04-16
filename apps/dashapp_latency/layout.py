@@ -10,6 +10,7 @@ import dash_html_components as html
 
 from .constants import OPTION_STR
 from apps.common_app_layouts import get_app_main_container
+from apps.constants import HTML_APP_LATENCY_TITLE
 
 # some explanation texts
 EXPLANATION_TXT = html.Div(
@@ -61,5 +62,5 @@ center_area = dbc.Card(  # the center chart in a Bootstrap Card
     body=True,
 )
 
-app_title_txt = "Latency Success Rates"
-layout = get_app_main_container(app_title_txt, center_area)
+app_title_txt = HTML_APP_LATENCY_TITLE
+latency_layout = get_app_main_container(app_title_txt, center_area)

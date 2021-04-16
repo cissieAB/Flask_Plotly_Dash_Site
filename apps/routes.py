@@ -12,7 +12,7 @@ https://flask.palletsprojects.com/en/1.1.x/quickstart/#routing.
 from flask import render_template
 from flask import Blueprint
 
-from .constants import HTML_APP_LATENCY_PATH, HTML_APP_LATENCY_TITLE
+from .constants import *
 
 server_bp = Blueprint('main', __name__)
 
@@ -22,11 +22,19 @@ def render_page_home():
     """Render the homepage."""
     return render_template(
         "index.html",    # a html file at "./templates"
-        # parameters for the first dash app
+        # parameters for the first Dash app
         app_1_latency_title=HTML_APP_LATENCY_TITLE,
         app_1_latency_description="Display the latency success rates of the FLASHFlux v3c/v4a SSF Aqua/Terra and the "
                                 "TISA data products by month or by year.",
-        app_1_latency_path=HTML_APP_LATENCY_PATH
+        app_1_latency_path=HTML_APP_LATENCY_PATH,
+        # parameters for the second Dash app
+        app_2_demo_slider_title=HTML_APP_DEMO_SLIDER_TITLE,
+        app_2_demo_slider_description="A demo for the Dash slider to view the data of last 7 days.",
+        app_2_demo_slider_path=HTML_APP_DEMO_SLIDER_PATH,
+        # parameters for the third Dash app
+        app_3_title="Plot 3",
+        app_3_description="To be added",
+        app_3_path=HTML_HOME_PATH,
     )
 
 
