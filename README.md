@@ -91,7 +91,7 @@ COMPRESSOR_DEBUG=True
 HTML_HOME_PATH = "http://127.0.0.1:5000"   # IMPORTANT: change it to the true url address when deployed
 ```
 
-## Update the web contexts
+## Updating web contexts
 ### Latency charts
 - Source data location: `apps/data/latency/*.csv`. 
   Replacing the files in this folder to update the plots at the webpage endpoint.
@@ -105,8 +105,14 @@ HTML_HOME_PATH = "http://127.0.0.1:5000"   # IMPORTANT: change it to the true ur
   the [automatic latency statistic scripts](https://github.com/cissieAB/LatencyResample). 
   Copying the results from there is recommended.
   
-
-
+### Add a Dash app
+This process includes:
+- Create the `layout` and the `callback` Dash functions based on your design.
+- Register this app in `/apps/__init__.py`.
+- Change the html templates when needed. 
+Please refer 
+[here](https://github.com/cissieAB/Flask_Plotly_Dash_Site/commit/a92429d6214b5f7bafc5c403166d22b57b1e51a4)
+ for how I added the second demo app.
  
 
 ## References
