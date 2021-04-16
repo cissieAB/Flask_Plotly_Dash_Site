@@ -1,13 +1,15 @@
 """
 The layout of the latency dash app.
+Most of the context is static written with HTML or Markdown.
 
+The core part is a Dash dropdown. Refer to https://dash.plotly.com/dash-core-components/dropdown for details.
 """
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 
 from .constants import OPTION_STR
-from apps.constants import HTML_RETURN_BUTTON
+from apps.common_app_layouts import get_app_main_container
 
 # some explanation texts
 EXPLANATION_TXT = html.Div(
@@ -35,7 +37,7 @@ EXPLANATION_TXT = html.Div(
     ]
 )
 
-CENTER_GRAPH = dbc.Card(  # the center chart in a Bootstrap Card
+center_area = dbc.Card(  # the center chart in a Bootstrap Card
     [
         # Below are all Dash.html components
         # Ref: https://dash.plotly.com/dash-html-components
@@ -45,35 +47,19 @@ CENTER_GRAPH = dbc.Card(  # the center chart in a Bootstrap Card
 
         # title of the drop-down
         html.H4('Select a data source'),
-        # dropdown area
+        # dropdown area, core part
         dcc.Dropdown(
-            id='latency-dropdown',
+            id='latency-dropdown',   # make sure id the same as that in its callback function
             options=[{'label': type_str, 'value': type_str} for type_str in OPTION_STR],
             value='Aqua'  # set default value as "Aqua"
         ),
         # a blank line
         html.Br(),
         # graph area
-        dcc.Graph(id="latency-center-chart"),  # id the same as that in its callback function
+        dcc.Graph(id="latency-center-chart"),  # make sure id the same as that in its callback function
     ],
     body=True,
 )
 
-
-layout = dbc.Container(
-    [
-        html.Br(),
-        html.H2("Latency Success Rates"),  # page title
-        html.Hr(),
-        dbc.Row(
-            [
-                dbc.Col(CENTER_GRAPH),
-            ],
-            align="center",
-        ),
-        html.Br(),
-        html.Hr(),
-        HTML_RETURN_BUTTON,
-    ],
-    fluid=False,   # False indicates there is a center box which will not expand when the screen goes too wide
-)
+app_title_txt = "Latency Success Rates"
+layout = get_app_main_container(app_title_txt, center_area)
