@@ -38,7 +38,7 @@ EXPLANATION_TXT = html.Div(
     ]
 )
 
-center_area = dbc.Card(  # the center chart in a Bootstrap Card
+center_area = dbc.Card(  # the center area is wrapped by a Bootstrap Card
     [
         # Below are all Dash.html components
         # Ref: https://dash.plotly.com/dash-html-components

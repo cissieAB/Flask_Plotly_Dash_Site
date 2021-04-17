@@ -1,0 +1,2 @@
+TIME_STR_FMT = "%b-%d-%Y"
+TRACE_DAYS = 7

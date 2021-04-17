@@ -5,8 +5,7 @@ The core part is a Dash dropdown.
 Refer to https://dash.plotly.com/dash-core-components/dropdown for details.
 """
 
-from dash.dependencies import Input
-from dash.dependencies import Output
+from dash.dependencies import Input, Output
 
 from .plotly_barchart_helper import get_latency_figure_obj
 

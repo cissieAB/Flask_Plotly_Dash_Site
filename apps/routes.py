@@ -29,11 +29,13 @@ def render_page_home():
         app_1_latency_path=HTML_APP_LATENCY_PATH,
         # parameters for the second Dash app
         app_2_demo_slider_title=HTML_APP_DEMO_SLIDER_TITLE,
-        app_2_demo_slider_description="A demo for the Dash slider to view the data of last 7 days.",
+        app_2_demo_slider_description="A demo for the Dash slider. Show different pictures according to different "
+                                    "slider input values.",
         app_2_demo_slider_path=HTML_APP_DEMO_SLIDER_PATH,
         # parameters for the third Dash app
         app_3_title="Plot 3",
-        app_3_description="To be added",
+        app_3_description="Description text written in `routes.py` goes here."
+                          " Change the href of the below button afterwards.",
         app_3_path=HTML_HOME_PATH,
     )
 
