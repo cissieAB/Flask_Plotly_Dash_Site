@@ -9,8 +9,8 @@ from datetime import timedelta
 from apps.dashapp_demo_slider.constants import TIME_STR_FMT, TRACE_DAYS
 from apps.dashapp_demo_slider.utils import convert_str_2_timeobj, convert_timeobj_2_str
 
-# TODO: replace it with true most recent date
-MOCK_MOST_RECENT_DATE = "Apr-07-2021"    # a string follow the format defined by TIME_STR_FMT
+# TODO: replace it with the true most recent date
+MOCK_MOST_RECENT_DATE = "Apr-07-2021"    # a string follows the format defined by TIME_STR_FMT
 
 
 def get_7_recent_dates(most_recent_date: str) -> List[str]:

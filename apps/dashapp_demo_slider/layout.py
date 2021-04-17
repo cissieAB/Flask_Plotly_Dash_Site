@@ -37,7 +37,6 @@ center_area = dbc.Card(  # the center area is wrapped by a Bootstrap Card
         # dcc.Graph(),   # use this when the object is a Plotly figure
         html.Img(
             id="demo-slider-center-img",
-            # height="300px",
             style={
                 'width': '80%',
                 'margin-bottom': 40,

@@ -46,8 +46,8 @@ more Dash apps.
 - `/apps/templates/`: all the static html files defined by `/apps/routes.py` have to be 
   located here. These html files are independent of the Dash pages created by pure Python. 
   Change them when needed.
-- `/apps/static/`: all the site-related static files, including `.css`, and the images.
-Note that `.js` files are also supported theoretically, but I have not succeeded.
+- `/apps/static/`: all the site-related static files, including `styles.css` and the images.
+Note that `.js` files are also supported though I have not succeeded yet.
 - `/apps/data/`: all the related data for the real-time plots. I use different folders 
 for diverse Dash apps.
 - `/apps/dashapp_latency/`: all the files related to the latency Dash app. 
@@ -62,6 +62,56 @@ For example, the latency plot app is within `./apps/dashapp_latency`.
 ### Frontend
 The static html files have to be in the folder `/apps/templates/`. 
 Flask will automatically search this location. Inappropriate processes may cause error.
+
+Note that although the html pages are static, some contents can be passed through Python. 
+Below I demonstrate how I render the homepage with Python and html together.
+
+The Homepage is scripted in `/apps/templates/index.html`. It's a gallery entry for the Dash apps.
+
+The html code for each app is marked below. Note that the three variables `app_1_latency_title`, 
+`app_1_latency_description` and `app_1_latency_path` are passed through `/apps/route.py`. A screenshot 
+of the first app is uploaded for your better understanding
+
+```html
+        <!-- One dash plot entry is represented with one Bootstrap Card-->
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    <!-- image size: height: 200px, width: 375px-->
+                    <img class="card-img-top" src="../static/images/cover_latency_app.png" alt="Latency App Cover Image">
+                </div>
+
+                <div class="card-body">
+                    <!-- things in the double quoted brace are passed through `./apps/routes.py` -->
+                    <h4 class="dash-app-title">{{ app_1_latency_title }}</h4>
+                    <p class="card-text">
+                        {{ app_1_latency_description }}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href={{ app_1_latency_path }} class="btn btn-primary">Click here</a>
+                </div>
+            </div>
+        </div>
+```
+
+```python
+@server_bp.route("/")
+def render_page_home():
+    """Render the homepage."""
+    return render_template(
+        "index.html",    # a html file at "./templates"
+        # parameters for the first Dash app
+        app_1_latency_title=HTML_APP_LATENCY_TITLE,  # 1. app_title
+        app_1_latency_description="Display the latency success rates of the FLASHFlux v3c/v4a SSF Aqua/Terra and the "
+                                  "TISA data products by month or by year.",  # 2. app_latency
+        app_1_latency_path=HTML_APP_LATENCY_PATH,   # 3. the url for the app
+```
+
+![](./apps/static/images/screenshot_app_1.png)
+
+
+
 
 ## Deployment
 
@@ -84,8 +134,7 @@ LESS_RUN_IN_DEBUG=False
 COMPRESSOR_DEBUG=True
 ```
   
-- In `/apps/constants.py`, change `HTML_HOME_PATH = "http://127.0.0.1:5000"` 
-  to the true homepage url address after deployment.
+- In `/apps/constants.py`, change `HTML_HOME_PATH` to the true homepage url address when deployed.
 ```python
 # url paths for the dash plot apps
 HTML_HOME_PATH = "http://127.0.0.1:5000"   # IMPORTANT: change it to the true url address when deployed
@@ -105,13 +154,14 @@ HTML_HOME_PATH = "http://127.0.0.1:5000"   # IMPORTANT: change it to the true ur
   the [automatic latency statistic scripts](https://github.com/cissieAB/LatencyResample). 
   Copying the results from there is recommended.
   
-### Add a Dash app
-This process includes:
+### More Dash apps
+Follow the processes below to create a new Dash app and merge it to the existing code base:
 - Create the `layout` and the `callback` Dash functions based on your design.
 - Register this app in `/apps/__init__.py`.
-- Change the html templates when needed. 
-Please refer 
-[here](https://github.com/cissieAB/Flask_Plotly_Dash_Site/commit/a92429d6214b5f7bafc5c403166d22b57b1e51a4)
+- Change the html template in `/apps/templates/index.html` when needed. 
+
+Please refer to 
+[the git commit](https://github.com/cissieAB/Flask_Plotly_Dash_Site/commit/a92429d6214b5f7bafc5c403166d22b57b1e51a4)
  for how I added the second demo app.
  
 

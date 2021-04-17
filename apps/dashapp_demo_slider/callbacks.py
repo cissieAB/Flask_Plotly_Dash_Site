@@ -33,6 +33,7 @@ def register_demo_slider_callbacks(dashapp):
         :param selected_delta_value: input, int, in the range [-6, 0] here.
         :return: the image url address, and the input slider value.
         """
+        # TODO: replace this with true figures or Plotly figure objects
         return \
             RANDOM_IMAGE_URLS[selected_delta_value + TRACE_DAYS - 1], \
             'You have selected "{}", the data type is {}'.format(selected_delta_value, type(selected_delta_value))
