@@ -73,6 +73,7 @@ The html code for each app is marked below. Note that the three variables `app_1
 of the first app is uploaded for your better understanding
 
 ```html
+<!-- index.html -->
         <!-- One dash plot entry is represented with one Bootstrap Card-->
         <div class="col-sm-4">
             <div class="card">
@@ -96,6 +97,7 @@ of the first app is uploaded for your better understanding
 ```
 
 ```python
+# routes.py
 @server_bp.route("/")
 def render_page_home():
     """Render the homepage."""
@@ -106,6 +108,8 @@ def render_page_home():
         app_1_latency_description="Display the latency success rates of the FLASHFlux v3c/v4a SSF Aqua/Terra and the "
                                   "TISA data products by month or by year.",  # 2. app_latency
         app_1_latency_path=HTML_APP_LATENCY_PATH,   # 3. the url for the app
+        ...
+    )
 ```
 
 ![](./apps/static/images/screenshot_app_1.png)
